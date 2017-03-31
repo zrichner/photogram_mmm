@@ -156,39 +156,6 @@
   </div>
 </div>
 
-<!-- A User has many favorites -->
-
-<div class="row">
-  <div class="col-md-12">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">
-        Favorites
-      </li>
-
-      <% @user.favorites.each do |photo| %>
-        <li class="list-group-item">
-          <a href="/photos/<%= photo.id %>">
-            <%= photo.created_at %>
-          </a>
-          <div class="btn-group btn-group-xs pull-right">
-            <a href="/photos/<%= photo.id %>" class="btn btn-primary">
-              <i class="fa fa-search-plus"></i>
-            </a>
-            <%if current_user == photo.user %>
-              <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-              <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
 <!-- A User has many following -->
 
 <div class="row">
@@ -244,6 +211,39 @@
             <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
               <i class="fa fa-trash-o"></i>
             </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many timeline -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Timeline
+      </li>
+
+      <% @user.timeline.each do |photo| %>
+        <li class="list-group-item">
+          <a href="/photos/<%= photo.id %>">
+            <%= photo.created_at %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/photos/<%= photo.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <%if current_user == photo.user %>
+              <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">
+                <i class="fa fa-trash-o"></i>
+              </a>
+            <% end %>
           </div>
         </li>
       <% end %>

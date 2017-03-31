@@ -92,16 +92,16 @@
   </div>
 </div>
 
-<!-- A Photo has many likers -->
+<!-- A Photo has many followers -->
 
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
       <li class="list-group-item list-group-item-info">
-        Likers
+        Followers
       </li>
 
-      <% @photo.likers.each do |user| %>
+      <% @photo.followers.each do |user| %>
         <li class="list-group-item">
           <a href="/users/<%= user.id %>">
             <%= user.email %>
